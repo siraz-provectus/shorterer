@@ -1,0 +1,22 @@
+common: &common
+  adapter: postgresql
+  database: <%= ENV['DATABASE_NAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  pool: <%= ENV['DATABASE_POOL'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  encoding: utf8
+
+development:
+  <<: *common
+mock:
+  <<: *common
+sandbox:
+  <<: *common
+staging:
+  <<: *common
+production:
+  <<: *common
+test:
+  <<: *common
+  database: shorterer_test
